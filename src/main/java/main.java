@@ -25,8 +25,18 @@ public class main {
         String pushFirstTime = "git add . & git commit -am \"Initial\" & git remote add origin git@github.com:Ahmed-Fouad0440/test.git & "
                 + "git branch -M main & "
                 + "git push -u origin main";
-        String pushNextTime = "git add . & git commit -am \"latest update\" & git push";
-        String command = prefix + gotoDir + " && " + pushNextTime;
+        
+        String commitMSG = "any message user wants";
+        
+        String pushNextTime = "git add . & git commit -am \"" + commitMSG + "\" & git push";
+        
+        String remoteName = "origin";
+//        String branch2 = "mybranch";
+        String branchName = "mybranch";
+        String gotoBranch = "git checkout " + branchName;
+        String setUpstream = "git push --set-upstream " + remoteName + " " + branchName;
+        
+        String command = prefix + gotoDir + " & " + gotoBranch + " & " + setUpstream + " & " + pushNextTime;
 
         try {
             Process process = Runtime.getRuntime().exec(command);
