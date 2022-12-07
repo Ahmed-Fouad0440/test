@@ -30,8 +30,9 @@ HasGitChanges();
     
     public static boolean HasGitChanges(){
         ArrayList<String> changes= RunCommandAndGetOutput("cmd /c git status", new ArrayList<>());
-        System.out.println(changes.toString());
-        return true;
+        boolean treeClean = changes.toString().indexOf("working tree clean") >= 0;
+        System.out.println("tree clean: " + treeClean);
+        return !treeClean;
     }
 
     public static String[] GetGitBranches() {
