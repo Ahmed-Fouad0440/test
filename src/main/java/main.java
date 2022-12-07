@@ -30,7 +30,8 @@ CheckIfEverythingIsUptoDateWithGitPush();
        public static boolean CheckIfEverythingIsUptoDateWithGitPush(){
            ArrayList<String> output =  RunCommandAndGetOutput("cmd /c git push", new ArrayList<String>());
            System.out.println(output);
-           return output.toString().indexOf("Everything up-to-date")>=0;
+           boolean uptoDate =  output.toString().indexOf("Everything up-to-date")>=0;
+           return uptoDate;
        }
        
        public static void ComitAndPushToBranch(String branch, String commitMSG){
