@@ -34,7 +34,7 @@ CheckIfEverythingIsUptoDateWithGitPush();
        }
        
        public static void ComitAndPushToBranch(String branch, String commitMSG){
-           System.out.println( RunCommandAndGetOutput("cmd /c git checkout " + branch + " && git add . && git commit -am \"" + commitMSG + "\" && git push  2>&1", new ArrayList<>()).toString());
+           System.out.println( RunCommandAndGetOutput("cmd /c git checkout " + branch + " && git add . && git commit -am \"" + commitMSG + "\" && git push", new ArrayList<>()).toString());
            
        }
        
@@ -68,7 +68,7 @@ CheckIfEverythingIsUptoDateWithGitPush();
         ArrayList<String> outputLines = new ArrayList<>();
 
         try {
-            Process process = Runtime.getRuntime().exec(fullCommand);
+            Process process = Runtime.getRuntime().exec(fullCommand + " 2>&1");
 
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()));
             for (String input : inputLines) {
