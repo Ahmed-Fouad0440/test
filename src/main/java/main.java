@@ -31,7 +31,7 @@ CheckIfEverythingIsUptoDateWithGitPush();
            ArrayList<String> output =  RunCommandAndGetOutput("cmd /c git push", new ArrayList<String>());
            System.out.println(output);
            boolean uptoDate =  output.toString().indexOf("Everything up-to-date")>=0;
-                      System.out.println(output);
+                      System.out.println(uptoDate);
 
            return uptoDate;
        }
