@@ -23,8 +23,15 @@ public class main {
 //        System.out.println(RunCommandAndGetOutput("cmd /c git branch", new ArrayList<String>()));
 //        System.out.println(Arrays.toString(GetGitBranches()));
 //HasGitChanges();
-ComitAndPushToBranch("mybranch", "default-message");
+ComitAndPushToBranch("mybranch", "default-message2");
+CheckIfEverythingIsUptoDateWithGitPush();
     }
+       
+       public static boolean CheckIfEverythingIsUptoDateWithGitPush(){
+           ArrayList<String> output =  RunCommandAndGetOutput("cmd /c git push", new ArrayList<String>());
+           System.out.println(output);
+           return output.toString().indexOf("Everything up-to-date")>=0;
+       }
        
        public static void ComitAndPushToBranch(String branch, String commitMSG){
            System.out.println( RunCommandAndGetOutput("cmd /c git checkout " + branch + " && git add . && git commit -am \"" + commitMSG + "\" && git push", new ArrayList<>()).toString());
