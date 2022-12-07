@@ -28,6 +28,7 @@ ComitAndPushToBranch("mybranch", "default-message");
        
        public static void ComitAndPushToBranch(String branch, String commitMSG){
            System.out.println( RunCommandAndGetOutput("cmd /c git checkout " + branch + " && git add . && git commit -am \"" + commitMSG + "\" && git push", new ArrayList<>()).toString());
+           
        }
        
     
