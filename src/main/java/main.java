@@ -22,10 +22,13 @@ public class main {
        public static void main(String[] args) throws IOException, InterruptedException {
 //        System.out.println(RunCommandAndGetOutput("cmd /c git branch", new ArrayList<String>()));
 //        System.out.println(Arrays.toString(GetGitBranches()));
-HasGitChanges();
+//HasGitChanges();
+ComitAndPushToBranch("mybranch", "default-message");
     }
        
-       
+       public static void ComitAndPushToBranch(String branch, String commitMSG){
+           RunCommandAndGetOutput("cmd /c git checkout " + branch + " && git add . && git commit -am \"" + commitMSG + "\" && git push", new ArrayList<>());
+       }
        
     
     public static boolean HasGitChanges(){
