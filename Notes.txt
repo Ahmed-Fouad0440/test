@@ -1,3 +1,7 @@
+Select a folder that has a git repo in it to push
+
+
+
 
 …or create a new repository on the command line
 echo "# test" >> README.md
